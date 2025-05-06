@@ -1,0 +1,49 @@
+{
+  "gitInfo": {
+    "commit": "17fdecc0218e53cccf53b0ea29e98ab443267853",
+    "repo": "https://github.com/0xPolygonHermez/zkevm-contracts.git"
+  },
+  "network": "sepolia",
+  "rollupManagerAddress": "0xe2ef6215adc132df6913c8dd16487abf118d1764",
+  "RollupManagerInfo": {
+    "bridgeAddress": "0x1348947e282138d8f377b467F7D9c2EB0F335d1f",
+    "globalExitRootManager": "0x2968D6d736178f8FE7393CC33C87f29D9C287e78",
+    "pol": "0x57e7e56d9dCe34C5E899141834Bf512061dd9CD0",
+    "rollupData": {
+      "rollupID": 36,
+      "rollupAddress": "0x8ff6523b20feC58697690e5857325B0FC45e2320"
+    }
+  },
+  "gasTokenAddress": "0x0000000000000000000000000000000000000000",
+  "gasTokenNetwork": 0,
+  "gasTokenMetadata": "0x",
+  "chainID": 473,
+  "bridgeManager": "0xBe46896822BD1d415522F3a5629Fe28447b95563",
+  "sovereignWETHAddress": "0x0000000000000000000000000000000000000000",
+  "sovereignWETHAddressIsNotMintable": false,
+  "globalExitRootUpdater": "0x94e8844309E40f4FFa9146a7a890077561f925bc",
+  "globalExitRootRemover": "0x0000000000000000000000000000000000000000",
+  "emergencyBridgePauser": "0xBe46896822BD1d415522F3a5629Fe28447b95563",
+  "genesisSCNames": {
+    "PolygonZkEVMDeployer": "0x3b25741Bf4E0cFdaD4a78F592053AFA644716B22",
+    "ProxyAdmin": "0xe9E0BAAe3eEB4F0D1A2e8cd36CEB61Ab8ad83f95",
+    "BridgeL2SovereignChain implementation": "0x5B6A4b18066377d398576097928eDaBEfDECC83F",
+    "BridgeL2SovereignChain proxy": "0x1348947e282138d8f377b467F7D9c2EB0F335d1f",
+    "GlobalExitRootManagerL2SovereignChain implementation": "0x8d4aCf183151aA3c572f11C99e4d108D36C6d835",
+    "GlobalExitRootManagerL2SovereignChain proxy": "0xa40d5f56745a118d0906a34e69aec8c0db1cb8fa",
+    "PolygonZkEVMTimelock": "0xb8fBBbefc6fB8CA6b97644781ebD3432020118ac",
+    "TokenWrappedBridgeInitCode": "0xE5f6aFd6f1B5A0280917C4F2C2461e4Bb1055D96"
+  },
+  "preMintAccounts": [
+    {
+      "balance": "1000000000000000000",
+      "address": "0xBe46896822BD1d415522F3a5629Fe28447b95563"
+    }
+  ],
+  "totalPreMintedAmount": "1000000000000000000",
+  "timelockParameters": {
+    "adminAddress": "0xBe46896822BD1d415522F3a5629Fe28447b95563",
+    "minDelay": 0
+  },
+  "formatGenesis": "geth"
+}

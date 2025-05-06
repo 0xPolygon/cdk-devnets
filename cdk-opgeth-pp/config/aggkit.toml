@@ -1,0 +1,67 @@
+PathRWData = "/data"
+L1URL = "https://..." # REPLACE: L1_RPC_URL
+L2URL = "http://op-geth:8545"
+AggLayerURL = "https://agglayer-dev.polygon.technology"
+
+ForkId = "12"
+ContractVersions = "banana"
+IsValidiumMode = false
+
+L2Coinbase = "0x0769fcb9ca9369b0494567038E5d1f27f0CBE0aC" # REPLACE: SEQUENCER_ADDRESS
+SequencerPrivateKeyPath = ""
+SequencerPrivateKeyPassword = ""
+
+AggregatorPrivateKeyPath = ""
+AggregatorPrivateKeyPassword  = ""
+SenderProofToL1Addr = ""
+polygonBridgeAddr = "0x1348947e282138d8f377b467f7d9c2eb0f335d1f" # REPLACE: polygonZkEVMBridgeAddress@combined.json
+
+RPCURL = "http://op-geth:8545"
+WitnessURL = ""
+
+rollupCreationBlockNumber = 8221186 # REPLACE: createRollupBlockNumber@combined.json
+rollupManagerCreationBlockNumber = 5157574 # REPLACE: upgradeToULxLyBlockNumber@combined.json
+genesisBlockNumber = 5157574 # REPLACE: upgradeToULxLyBlockNumber@combined.json
+
+[L1Config]
+chainId = 11155111
+polygonZkEVMGlobalExitRootAddress = "0x2968d6d736178f8fe7393cc33c87f29d9c287e78" # REPLACE: polygonZkEVMGlobalExitRootAddress@combined.json
+polygonRollupManagerAddress = "0xe2ef6215adc132df6913c8dd16487abf118d1764" # REPLACE: polygonRollupManagerAddress@combined.json
+polTokenAddress = "0x57e7e56d9dce34c5e899141834bf512061dd9cd0" # REPLACE: 0x57e7e56d9dce34c5e899141834bf512061dd9cd0@combined.json
+polygonZkEVMAddress = "0x8ff6523b20fec58697690e5857325b0fc45e2320" # REPLACE: rollupAddress@combined.json
+
+[L2Config]
+GlobalExitRootAddr = "0xa40d5f56745a118d0906a34e69aec8c0db1cb8fa" # REPLACE: GlobalExitRootManagerL2SovereignChain proxy@polygon-genesis-info.json
+
+[Log]
+Environment = "production"
+Level = "info"
+Outputs = ["stderr"]
+
+[RPC]
+Port = 5576
+
+[AggSender]
+AggsenderPrivateKey = {Path = "/etc/aggkit/sequencer.keystore", Password = "password"}
+CertificateSendInterval = "1m"
+CheckSettledInterval = "5s"
+MaxCertSize = 8388608
+SaveCertificatesToFilesPath = "/data"
+BlockFinality="FinalizedBlock"
+
+[AggOracle.EVMSender]
+GlobalExitRootL2 = "0xa40d5f56745a118d0906a34e69aec8c0db1cb8fa" # REPLACE: GlobalExitRootManagerL2SovereignChain proxy@polygon-genesis-info.json
+
+[AggOracle.EVMSender.EthTxManager]
+PrivateKeys = [{Path = "/etc/aggkit/aggoracle.keystore", Password = "password"}]
+
+[AggOracle.EVMSender.EthTxManager.Etherman]
+L1ChainID = 473 # REPLACE: chainId@combined.json
+
+[BridgeL2Sync]
+BridgeAddr = "0x1348947e282138d8f377b467F7D9c2EB0F335d1f" # REPLACE: BridgeL2SovereignChain proxy@polygon-genesis-info.json
+
+[L1InfoTreeSync]
+BlockFinality="FinalizedBlock"
+SyncBlockChunkSize=1000
+InitialBlock = 5157574 # REPLACE: upgradeToULxLyBlockNumber@combined.json

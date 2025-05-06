@@ -1,0 +1,61 @@
+[Log]
+Environment = "production"
+Level = "info"
+Outputs = ["stderr"]
+
+[SyncDB]
+Database = "postgres"
+  [SyncDB.PgStorage]
+  User = "bridge_user"
+  Password = "master_password"
+  Name = "bridge_db"
+  Host = "db"
+  Port = "5432"
+  MaxConns = 200
+
+[Etherman]
+l1URL = "https://..." # REPLACE: L1_RPC_URL@combined.json
+L2URLs = ["http://op-geth:8545"]
+
+[Synchronizer]
+BlockFinality = "FinalizedBlock"
+SyncInterval = "5s"
+SyncChunkSize = 1000
+
+[BridgeController]
+Store = "postgres"
+Height = 32
+
+[BridgeServer]
+CacheSize = 100000
+GRPCPort = "9090"
+HTTPPort = "8080"
+DefaultPageLimit = 25
+MaxPageLimit = 100
+BridgeVersion = "v1"
+
+[BridgeServer.DB]
+Database = "postgres"
+  [BridgeServer.DB.PgStorage]
+  User = "bridge_user"
+  Password = "master_password"
+  Name = "bridge_db"
+  Host = "db"
+  Port = "5432"
+  MaxConns = 200
+
+[NetworkConfig]
+GenBlockNumber = 4794475 # REPLACE: deploymentRollupManagerBlockNumber@combined.json
+PolygonBridgeAddress = "0x1348947e282138d8f377b467f7d9c2eb0f335d1f" # REPLACE: polygonZkEVMBridgeAddress@combined.json
+PolygonZkEVMGlobalExitRootAddress = "0x2968d6d736178f8fe7393cc33c87f29d9c287e78" # REPLACE: polygonZkEVMGlobalExitRootAddress@combined.json
+PolygonRollupManagerAddress = "0xe2ef6215adc132df6913c8dd16487abf118d1764" # REPLACE: polygonRollupManagerAddress@combined.json
+PolygonZkEVMAddress = "0x8ff6523b20fec58697690e5857325b0fc45e2320" # REPLACE: rollupAddress@combined.json
+L2PolygonBridgeAddresses = ["0x1348947e282138d8f377b467f7d9c2eb0f335d1f"]  # REPLACE: BridgeL2SovereignChain proxy@polygon-genesis-info.json
+L2PolygonZkEVMGlobalExitRootAddresses = ["0xa40d5f56745a118d0906a34e69aec8c0db1cb8fa"] # REPLACE: GlobalExitRootManagerL2SovereignChain proxy@polygon-genesis-info.json
+RequireSovereignChainSmcs = [true]
+
+[ClaimTxManager]
+FrequencyToMonitorTxs = "5s"
+PrivateKey = {Path = "/etc/bridge/claimtx.keystore", Password = "password"}
+Enabled = true
+RetryInterval = "1s"

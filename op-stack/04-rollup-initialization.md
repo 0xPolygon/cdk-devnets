@@ -1,6 +1,6 @@
 # Rollup Initialization
 
-This document explains how to generate rollup initialization artifacts and run the rollup initialization script for an AggLayer rollup.
+This document explains how to generate rollup initialization artifacts and run the rollup initialization script for an Agglayer rollup.
 
 ## References
 

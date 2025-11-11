@@ -82,7 +82,7 @@ L1ChainID = 888
 - **L1URL/L2URL**: RPC endpoints for L1 and L2 networks
 - **Contract addresses**: Polygon Rollup Manager, Global Exit Root Manager, Bridge, and token addresses
 - **Block numbers**: Rollup creation, manager creation, and genesis block numbers
-- **AggSender**: Configuration for sending aggregated certificates, including prover client and AggLayer client settings
+- **AggSender**: Configuration for sending aggregated certificates, including prover client and Agglayer client settings
 - **AggOracle**: Configuration for the oracle service, including committee settings and private key management
 
 > **Note**: Private keys can be configured using GCP KMS (as shown) or file-based keystores. Adjust the `Method` and `KeyName`/`Path` accordingly.

@@ -1,6 +1,6 @@
 # Devnets Deployment Guide
 
-This repository provides step-by-step instructions for deploying an OP Stack rollup and connecting it to the AggLayer.
+This repository provides step-by-step instructions for deploying an OP Stack rollup and connecting it to the Agglayer.
 
 ## Deployment Steps
 

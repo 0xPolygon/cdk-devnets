@@ -122,8 +122,8 @@ export WITNESS_GEN_TIMEOUT=""                  # Witness generation timeout
 export POLL_INTERVAL=""                        # Polling interval
 export RANGE_PROOF_INTERVAL=""                 # Range proof interval
 
-# AggLayer specific
-export AGGLAYER=""                             # AggLayer configuration
+# Agglayer specific
+export AGGLAYER=""                             # Agglayer configuration
 export AGG_PROOF_MODE=""                       # Aggregation proof mode
 
 # Monitoring

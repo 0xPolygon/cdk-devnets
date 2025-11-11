@@ -2,10 +2,9 @@
 
 This document explains how to generate rollup initialization artifacts and run the rollup initialization script for an AggLayer rollup.
 
-For full usage details, configuration options, and examples, see the Initialize Rollup README:
+## References
 
-- **Local path**: `tools/initializeRollup/README.md`
-- **GitHub**: [Initialize Rollup README](https://github.com/agglayer/agglayer-contracts/blob/v12.1.6/tools/initializeRollup/README.md)
+- [Initialize Rollup README](https://github.com/agglayer/agglayer-contracts/blob/v12.1.6/tools/initializeRollup/README.md) - Full usage details, configuration options, and examples
 
 ## TL;DR
 

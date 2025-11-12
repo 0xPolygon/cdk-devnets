@@ -7,6 +7,12 @@ This document describes how to generate the L2 genesis file used by the rollup c
 - **Recommended**: Merge OP Stack + Polygon genesis with pre-deployed contracts
 - **Alternative**: Manual L2 contract deployment (advanced; outside the scope of this guide)
 
+1. Checkout the agglayer-contracts repository and install dependencies
+2. Create and configure the parameter file using values from `combined.json`
+3. Download the allocs file from cdk-contracts-tooling (Bali, Cardona, etc) as `genesis-base.json`
+4. Run the Hardhat script to generate genesis files
+5. Rename the output files to canonical names
+
 ## Prerequisites
 
 - Node.js (for Hardhat) and `npm` installed
@@ -74,17 +80,29 @@ Update the file with relevant information from your `combined.json`. Example con
 }
 ```
 
-## Step 3: Prepare Base Genesis
+## Step 3: Download Allocs File
 
-Copy the base genesis example and paste your L2 `genesis-base.json` contents into it:
+Download the allocs file from the [cdk-contracts-tooling](https://github.com/0xPolygon/cdk-contracts-tooling) repository based on your environment:
+
+- **Bali**: [allocs.json](https://raw.githubusercontent.com/0xPolygon/cdk-contracts-tooling/main/genesis/pp/bali/allocs.json)
+- **Cardona**: [allocs.json](https://raw.githubusercontent.com/0xPolygon/cdk-contracts-tooling/main/genesis/pp/cardona/allocs.json)
+- **Mainnet**: [allocs.json](https://raw.githubusercontent.com/0xPolygon/cdk-contracts-tooling/main/genesis/pp/mainnet/allocs.json)
+
+Download the appropriate file and save it as `genesis-base.json` in the `./tools/createSovereignGenesis/` directory:
 
 ```shell
-cp ./tools/createSovereignGenesis/genesis-base.json.example ./tools/createSovereignGenesis/genesis-base.json
+# For Bali (example)
+curl -o ./tools/createSovereignGenesis/genesis-base.json \
+  https://raw.githubusercontent.com/0xPolygon/cdk-contracts-tooling/main/genesis/pp/bali/allocs.json
+
+# For Cardona
+# curl -o ./tools/createSovereignGenesis/genesis-base.json \
+#   https://raw.githubusercontent.com/0xPolygon/cdk-contracts-tooling/main/genesis/pp/cardona/allocs.json
 ```
 
 ## Step 4: Generate Genesis Files
 
-Run the Hardhat script to assemble the sovereign genesis using your parameter and base files:
+Run the Hardhat script to assemble the sovereign genesis using your parameter file and the downloaded allocs file:
 
 ```shell
 npx hardhat run ./tools/createSovereignGenesis/create-sovereign-genesis.ts --network sepolia

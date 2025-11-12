@@ -7,9 +7,6 @@ This document describes the common components required for Polygon Stack deploym
 ### Prerequisites
 
 - Access to L1 and L2 RPC endpoints
-- Contract addresses for Polygon Rollup Manager, Global Exit Root Manager, and Bridge
-- Private keys for aggsender and aggoracle
-- Genesis file and rollup creation information
 
 ### Docker Image
 

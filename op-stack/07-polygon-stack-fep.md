@@ -79,6 +79,8 @@ docker run --rm -it \
 
 ## OP Succinct Proposer
 
+> **Source of Truth**: For complete documentation, see the [OP Succinct Proposer Documentation](https://github.com/agglayer/op-succinct/blob/v3.3.3-agglayer/book/validity/proposer.md).
+
 ### Prerequisites
 
 - A dedicated PostgreSQL database (must be set up separately)
@@ -92,85 +94,21 @@ ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.3.3-agglayer
 
 ### Environment Variables
 
-Set the following environment variables before running the container:
-
-```shell
-# Database configuration
-export DATABASE_URL="postgresql://user:password@host:port/database"
-export DB_PATH=""                              # Alternative database path
-export USE_CACHED_DB=""                        # Enable cached database
-
-# RPC endpoints
-export L1_RPC="https://<your-l1-rpc>"
-export L1_BEACON_RPC="https://<your-l1-beacon-rpc>"
-export L2_NODE_RPC="http://<your-l2-node>"
-export L2_RPC="http://<your-l2-rpc>"
-export NETWORK_RPC_URL=""                      # Network RPC URL
-
-# Contract addresses
-export L2OO_ADDRESS="0x..."                    # L2 Output Oracle contract address
-export PROVER_ADDRESS="0x..."                  # Prover contract address
-
-# Configuration
-export OP_SUCCINCT_CONFIG_NAME=""              # OP Succinct configuration name
-export OP_SUCCINCT_MOCK=""                     # Enable mock mode (testing)
-
-# Performance tuning
-export MAX_CONCURRENT_PROOF_REQUESTS=""        # Maximum concurrent proof requests
-export MAX_CONCURRENT_WITNESS_GEN=""           # Maximum concurrent witness generation
-export WITNESS_GEN_TIMEOUT=""                  # Witness generation timeout
-export POLL_INTERVAL=""                        # Polling interval
-export RANGE_PROOF_INTERVAL=""                 # Range proof interval
-
-# Agglayer specific
-export AGGLAYER=""                             # Agglayer configuration
-export AGG_PROOF_MODE=""                       # Aggregation proof mode
-
-# Monitoring
-export METRICS_ENABLED=""                      # Enable metrics
-export METRICS_PORT=""                         # Metrics port
-
-# gRPC
-export GRPC_ADDRESS=""                         # gRPC server address
-
-# Logging
-export RUST_LOG=""                             # Rust log level
-```
+> **Source of Truth**: For complete environment variable documentation, see the [Environment Setup](https://github.com/agglayer/op-succinct/blob/v3.3.3-agglayer/book/validity/proposer.md#environment-setup) section.
 
 ### Running the Container
 
-Run the OP Succinct Proposer using Docker. All environment variables must be passed to the container:
+Make sure to include *all* of the required environment variables in the `.env` file. See the documentation for the complete list of required and optional environment variables.
 
 ```shell
 docker run --rm -it \
-  --env DATABASE_URL="${DATABASE_URL}" \
-  --env DB_PATH="${DB_PATH}" \
-  --env USE_CACHED_DB="${USE_CACHED_DB}" \
-  --env L1_RPC="${L1_RPC}" \
-  --env L1_BEACON_RPC="${L1_BEACON_RPC}" \
-  --env L2_NODE_RPC="${L2_NODE_RPC}" \
-  --env L2_RPC="${L2_RPC}" \
-  --env NETWORK_RPC_URL="${NETWORK_RPC_URL}" \
-  --env L2OO_ADDRESS="${L2OO_ADDRESS}" \
-  --env PROVER_ADDRESS="${PROVER_ADDRESS}" \
-  --env OP_SUCCINCT_CONFIG_NAME="${OP_SUCCINCT_CONFIG_NAME}" \
-  --env OP_SUCCINCT_MOCK="${OP_SUCCINCT_MOCK}" \
-  --env MAX_CONCURRENT_PROOF_REQUESTS="${MAX_CONCURRENT_PROOF_REQUESTS}" \
-  --env MAX_CONCURRENT_WITNESS_GEN="${MAX_CONCURRENT_WITNESS_GEN}" \
-  --env WITNESS_GEN_TIMEOUT="${WITNESS_GEN_TIMEOUT}" \
-  --env POLL_INTERVAL="${POLL_INTERVAL}" \
-  --env RANGE_PROOF_INTERVAL="${RANGE_PROOF_INTERVAL}" \
-  --env AGGLAYER="${AGGLAYER}" \
-  --env AGG_PROOF_MODE="${AGG_PROOF_MODE}" \
-  --env METRICS_ENABLED="${METRICS_ENABLED}" \
-  --env METRICS_PORT="${METRICS_PORT}" \
-  --env GRPC_ADDRESS="${GRPC_ADDRESS}" \
-  --env RUST_LOG="${RUST_LOG}" \
+  --env-file .env \
   ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.3.3-agglayer
 ```
 
-> **Note**: Only set environment variables that are required for your configuration. Optional variables can be omitted or left empty.
+#### Example with Docker Compose
+
+See the [example docker-compose.yml](https://github.com/agglayer/op-succinct/blob/v3.3.3-agglayer/docker-compose.yml) for reference.
 
 ### Additional Resources
-
 - **GitHub**: [agglayer/op-succinct](https://github.com/agglayer/op-succinct)

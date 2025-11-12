@@ -1,5 +1,7 @@
 # Rollup Network Creation
 
+This document describes the initial step of requesting and receiving rollup creation artifacts from Polygon Labs. This is the first step in the deployment process and must be completed before proceeding with genesis generation and network deployment.
+
 ## Step 1: Submit a Request
 
 To initiate the rollup creation:
@@ -17,6 +19,5 @@ Once approved:
 ### Files You Will Receive
 
 - `combined.json` - Core deployment details
-- `genesis-base.json` - Needed for genesis generation
 
 > 💡 **Important:** Secure these files. They are required for further deployment steps.

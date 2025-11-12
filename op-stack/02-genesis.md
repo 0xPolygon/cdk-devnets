@@ -7,6 +7,12 @@ This document describes how to generate the L2 genesis file used by the rollup c
 - **Recommended**: Merge OP Stack + Polygon genesis with pre-deployed contracts
 - **Alternative**: Manual L2 contract deployment (advanced; outside the scope of this guide)
 
+1. Checkout the agglayer-contracts repository and install dependencies
+2. Create and configure the parameter file using values from `combined.json`
+3. Download the allocs file from cdk-contracts-tooling (Bali, Cardona, etc) as `genesis-base.json`
+4. Run the Hardhat script to generate genesis files
+5. Rename the output files to canonical names
+
 ## Prerequisites
 
 - Node.js (for Hardhat) and `npm` installed

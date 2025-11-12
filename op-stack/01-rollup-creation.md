@@ -2,6 +2,11 @@
 
 This document describes the initial step of requesting and receiving rollup creation artifacts from Polygon Labs. This is the first step in the deployment process and must be completed before proceeding with genesis generation and network deployment.
 
+## TL;DR
+
+1. Submit a request to Polygon Labs via the Support Portal
+2. Receive `combined.json` with core deployment details after approval
+
 ## Step 1: Submit a Request
 
 To initiate the rollup creation:

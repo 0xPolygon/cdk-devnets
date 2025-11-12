@@ -16,50 +16,9 @@ ghcr.io/agglayer/aggkit-prover:1.7.1
 
 ### Configuration
 
-The Aggkit Prover uses a TOML configuration file. Create a minimal configuration file at `/etc/aggkit/aggkit-prover-config.toml`:
+> **Source of Truth**: For complete configuration documentation, see the [example configuration snapshot](https://github.com/agglayer/provers/blob/main/crates/aggkit-prover-config/tests/snapshots/validate_deserialize__prover_grpc_max_decoding_message_size.snap).
 
-```toml
-grpc-endpoint = "0.0.0.0:4446"
-
-[log]
-level = "debug"
-outputs = []
-format = "json"
-
-[telemetry]
-prometheus-addr = "0.0.0.0:9090"
-
-[shutdown]
-runtime-timeout = "5s"
-
-[aggchain-proof-service.aggchain-proof-builder]
-network-id = 0
-proving-timeout = "1h"
-
-[aggchain-proof-service.aggchain-proof-builder.primary-prover.network-prover]
-proving-timeout = "1h"
-
-[aggchain-proof-service.aggchain-proof-builder.contracts]
-l1-rpc-endpoint = "https://<your-l1-rpc>"
-l2-execution-layer-rpc-endpoint = "http://<your-l2-execution-rpc>"
-l2-consensus-layer-rpc-endpoint = "http://<your-l2-consensus-rpc>"
-polygon-rollup-manager = "0x..."
-global-exit-root-manager-v2-sovereign-chain = "0x..."
-evm-sketch-genesis = "/etc/aggkit/genesis.json"
-
-[aggchain-proof-service.proposer-service]
-l1-rpc-endpoint = "https://<your-l1-rpc>"
-mock = false
-
-[aggchain-proof-service.proposer-service.client]
-proposer-endpoint = "http://<op-succinct-proposer>:50001"
-sp1-cluster-endpoint = "https://<sp1-cluster-endpoint>"
-request-timeout = 3600
-proving-timeout = 3600
-
-[primary-prover.network-prover]
-proving-timeout = "1h"
-```
+The Aggkit Prover uses a TOML configuration file. Create a configuration file at `/etc/aggkit/aggkit-prover-config.toml`. See the example configuration snapshot for reference.
 
 ### Running the Container
 

@@ -12,7 +12,7 @@ To initiate the rollup creation:
 Once approved:
 
 - Polygon Labs provisions your Rollup.
-- A transaction is recorded (e.g., [example transaction](https://sepolia.etherscan.io/tx/0x111618eedb16b416aef393db6dd2d73d5a190dd5e15bdaa704473ba89a497f92)).
+- A transaction is recorded (e.g., [example transaction](https://sepolia.etherscan.io/tx/0x9ff8f3556bc6b1f8b9b71fffc9e9434fdf0ae7d0d525b75611cce452c9cdb305)).
 
 ### Files You Will Receive
 

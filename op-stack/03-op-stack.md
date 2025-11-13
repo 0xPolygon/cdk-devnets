@@ -100,3 +100,23 @@ docker run --rm -v "$(pwd)/deployer:/deployer" -it \
 ```
 
 These files serve as inputs for running the OP Stack nodes or for further tooling in this repository.
+
+## OP Stack Components
+
+After deploying the contracts and generating the genesis files, you'll need to run the OP Stack components. For complete configuration documentation, refer to the official Optimism documentation:
+
+### Sequencer
+
+> **Source of Truth**: [Spinning up the sequencer](https://docs.optimism.io/chain-operators/guides/deployment/sequencer-node)
+
+The sequencer consists of two core components:
+- **op-geth**: Execution layer that processes transactions and maintains state
+- **op-node**: Consensus layer that orders transactions and creates L2 blocks
+
+The sequencer is responsible for ordering transactions from users, building L2 blocks, and signing blocks on the P2P network.
+
+### Batcher
+
+> **Source of Truth**: [Spinning up the batcher](https://docs.optimism.io/chain-operators/guides/deployment/spin-batcher)
+
+The batcher (`op-batcher`) collects L2 transactions and submits them as batches to L1. It ensures L2 transaction data is available on L1 for data availability and enables users to reconstruct the L2 state.

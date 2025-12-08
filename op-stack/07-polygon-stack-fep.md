@@ -11,7 +11,7 @@ This document describes how to run the components required for Polygon Stack FEP
 ### Docker Image
 
 ```shell
-ghcr.io/agglayer/aggkit-prover:1.7.1
+ghcr.io/agglayer/aggkit-prover:1.8.0
 ```
 
 ### Configuration
@@ -28,7 +28,7 @@ Run the Aggkit Prover using Docker with the configuration file mounted:
 docker run --rm -it \
   -v /path/to/aggkit-prover-config.toml:/etc/aggkit/aggkit-prover-config.toml \
   -v /path/to/op-stack/genesis.json:/etc/aggkit/genesis.json \
-  ghcr.io/agglayer/aggkit-prover:1.7.1 \
+  ghcr.io/agglayer/aggkit-prover:1.8.0 \
   /usr/local/bin/aggkit-prover run --config-path /etc/aggkit/aggkit-prover-config.toml
 ```
 
@@ -38,7 +38,7 @@ docker run --rm -it \
 
 ## OP Succinct Proposer
 
-> **Source of Truth**: For complete documentation, see the [OP Succinct Proposer Documentation](https://github.com/agglayer/op-succinct/blob/v3.3.3-agglayer/book/validity/proposer.md).
+> **Source of Truth**: For complete documentation, see the [OP Succinct Proposer Documentation](https://github.com/agglayer/op-succinct/blob/v3.4.0-rc.1-agglayer/book/validity/proposer.md).
 
 ### Prerequisites
 
@@ -48,12 +48,12 @@ docker run --rm -it \
 ### Docker Image
 
 ```shell
-ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.3.3-agglayer
+ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.4.0-rc.1-agglayer
 ```
 
 ### Environment Variables
 
-> **Source of Truth**: For complete environment variable documentation, see the [Environment Setup](https://github.com/agglayer/op-succinct/blob/v3.3.3-agglayer/book/validity/proposer.md#environment-setup) section.
+> **Source of Truth**: For complete environment variable documentation, see the [Environment Setup](https://github.com/agglayer/op-succinct/blob/v3.4.0-rc.1-agglayer/book/validity/proposer.md#environment-setup) section.
 
 ### Running the Container
 
@@ -62,12 +62,12 @@ Make sure to include *all* of the required environment variables in the `.env` f
 ```shell
 docker run --rm -it \
   --env-file .env \
-  ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.3.3-agglayer
+  ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.4.0-rc.1-agglayer
 ```
 
 #### Example with Docker Compose
 
-See the [example docker-compose.yml](https://github.com/agglayer/op-succinct/blob/v3.3.3-agglayer/docker-compose.yml) for reference.
+See the [example docker-compose.yml](https://github.com/agglayer/op-succinct/blob/v3.4.0-rc.1-agglayer/docker-compose.yml) for reference.
 
 ### Additional Resources
 - **GitHub**: [agglayer/op-succinct](https://github.com/agglayer/op-succinct)

@@ -21,7 +21,7 @@ Export the following variables (replace placeholders with values for your enviro
 export l1_rpc_url="https://<your-l1-rpc>"
 export l2_node_url="https://<your-l2-node>"
 export starting_block_number=1
-export op_succinct_version="v3.3.3-agglayer"
+export op_succinct_version="v3.4.0-rc.1-agglayer"
 ```
 
 > **Tip**: Keep these values private and do not commit them to version control.

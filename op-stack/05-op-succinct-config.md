@@ -19,7 +19,7 @@ export l1_rpc_url="https://<your-l1-rpc>"      # L1 RPC endpoint
 export l2_node_url="http://<your-l2-node>"     # L2 node RPC endpoint
 export l2_rpc_url="http://<your-l2-rpc>"       # L2 RPC (some tools expect this name)
 export aggchain_manager_private_key=0x...      # Private key of Aggchain manager
-export op_succinct_version=v3.3.3-agglayer     # op-succinct container tag
+export op_succinct_version=v3.4.0-rc.1-agglayer     # op-succinct container tag
 export config_name=$(cast keccak "${op_succinct_version}")
 ```
 

@@ -11,14 +11,14 @@ This document describes the common components required for Polygon Stack deploym
 ### Docker Image
 
 ```shell
-ghcr.io/agglayer/aggkit:0.7.1
+ghcr.io/agglayer/aggkit:0.7.2
 ```
 
 ### Configuration
 
-> **Source of Truth**: For complete configuration documentation, see the [Aggkit Documentation](https://github.com/agglayer/aggkit/blob/v0.7.1/docs/SUMMARY.md).
+> **Source of Truth**: For complete configuration documentation, see the [Aggkit Documentation](https://github.com/agglayer/aggkit/blob/v0.7.2/docs/SUMMARY.md).
 
-Aggkit uses a TOML configuration file. Create a configuration file at `/etc/aggkit/config.toml`. See the [example configuration file](https://github.com/agglayer/aggkit/blob/v0.7.1/config.toml.example) for reference.
+Aggkit uses a TOML configuration file. Create a configuration file at `/etc/aggkit/config.toml`. See the [example configuration file](https://github.com/agglayer/aggkit/blob/v0.7.2/config.toml.example) for reference.
 
 ### Running the Container
 
@@ -28,7 +28,7 @@ Run Aggkit using Docker with the configuration file mounted. The command specifi
 docker run --rm -it \
   -v /path/to/config.toml:/etc/aggkit/config.toml \
   -v /path/to/data:/data \
-  ghcr.io/agglayer/aggkit:0.7.1 \
+  ghcr.io/agglayer/aggkit:0.7.2 \
   aggkit run --cfg=/etc/aggkit/config.toml --components=aggoracle,aggsender,bridge
 ```
 

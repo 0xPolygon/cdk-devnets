@@ -20,6 +20,7 @@ Export the following variables (replace placeholders with values for your enviro
 ```shell
 export l1_rpc_url="https://<your-l1-rpc>"
 export l2_node_url="https://<your-l2-node>"
+export l2_rpc_url="http://<your-l2-rpc>" 
 export starting_block_number=1
 export op_succinct_version="v3.4.0-rc.1-agglayer"
 ```
@@ -48,12 +49,10 @@ cat > .env <<EOF
 L1_RPC="${l1_rpc_url}"
 L1_BEACON_RPC="${l1_rpc_url}"
 L2_NODE_RPC="${l2_node_url}"
-L2_RPC="${l2_node_url}"
+L2_RPC="${l2_rpc_url}"
 STARTING_BLOCK_NUMBER="${starting_block_number}"
 EOF
 ```
-
-> **Note**: Both `l2_node_rpc` and `l2_rpc` are set to the same value for compatibility with tools that expect either variable name.
 
 ## Step 4: Fetch L2 Output-Oracle Configuration
 

@@ -45,11 +45,11 @@ mkdir -p initialize_${op_succinct_version}
 cd initialize_${op_succinct_version}
 
 cat > .env <<EOF
-l1_rpc="${l1_rpc_url}"
-l1_beacon_rpc="${l1_rpc_url}"
-l2_node_rpc="${l2_node_url}"
-l2_rpc="${l2_node_url}"
-starting_block_number="${starting_block_number}"
+L1_RPC="${l1_rpc_url}"
+L1_BEACON_RPC="${l1_rpc_url}"
+L2_NODE_RPC="${l2_node_url}"
+L2_RPC="${l2_node_url}"
+STARTING_BLOCK_NUMBER="${starting_block_number}"
 EOF
 ```
 

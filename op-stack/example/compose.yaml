@@ -43,6 +43,7 @@ services:
     - ./deployer/rollup.json:/etc/optimism/rollup.json:ro
     - ./files/jwt.txt:/etc/optimism/jwt.txt:ro
     - ./files/opnode_p2p_priv.txt:/etc/optimism/opnode_p2p_priv.txt:ro
+    - ./datadir_sequencer_node:/datadir
     command: > 
       op-node
       --l2=http://op-geth-sequencer:8551
@@ -60,6 +61,7 @@ services:
       --p2p.listen.tcp=9222
       --p2p.advertise.ip=op-node-sequencer
       --p2p.priv.path=/etc/optimism/opnode_p2p_priv.txt
+      --safedb.path=/datadir
 
   op-batcher:
     image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-batcher:v1.16.2
@@ -127,6 +129,7 @@ services:
     volumes:
     - ./files/jwt.txt:/etc/optimism/jwt.txt:ro
     - ./deployer/rollup.json:/etc/optimism/rollup.json:ro
+    - ./datadir_rpc_node:/datadir
     command: > 
       op-node
       --l2=http://op-geth-rpc:8551
@@ -138,3 +141,4 @@ services:
       --l1.beacon=${l1_rpc_url}
       --p2p.static=/dns4/op-node-sequencer/tcp/9222/p2p/16Uiu2HAmAq6fEsVJN7i694KwAc9AMpjWYUV9Gu9aGdbnnfsVT7MR
       --p2p.no-discovery=true
+      --safedb.path=/datadir

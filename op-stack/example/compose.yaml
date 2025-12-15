@@ -1,0 +1,144 @@
+services:
+  op-geth-sequencer:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101603.4
+    ports:
+    - 8545 # HTTP
+    - 8546 # WS
+    - 8551 # Auth
+    volumes:
+    - ./files/jwt.txt:/etc/optimism/jwt.txt:ro
+    - ./datadir_sequencer:/datadir
+    command: >
+      --datadir /datadir
+      --http
+      --http.corsdomain="*"
+      --http.vhosts="*"
+      --http.addr=0.0.0.0
+      --http.port=8545
+      --http.api=admin,engine,net,eth,web3,debug,miner
+      --ws
+      --ws.addr=0.0.0.0
+      --ws.port=8546
+      --ws.origins="*"
+      --ws.api=admin,engine,net,eth,web3,debug,miner
+      --log.format=json
+      --syncmode="full"
+      --gcmode=archive
+      --maxpeers=1
+      --networkid=${l2_chain_id}
+      --authrpc.vhosts="*"
+      --authrpc.addr=0.0.0.0
+      --authrpc.port=8551
+      --authrpc.jwtsecret=/etc/optimism/jwt.txt
+      --rollup.disabletxpoolgossip=true
+      --rpc.allow-unprotected-txs
+      --db.engine=pebble
+      --state.scheme=hash
+
+  op-node-sequencer:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.16.1
+    ports:
+    - 9545
+    volumes:
+    - ./deployer/rollup.json:/etc/optimism/rollup.json:ro
+    - ./files/jwt.txt:/etc/optimism/jwt.txt:ro
+    - ./files/opnode_p2p_priv.txt:/etc/optimism/opnode_p2p_priv.txt:ro
+    - ./datadir_sequencer_node:/datadir
+    command: > 
+      op-node
+      --l2=http://op-geth-sequencer:8551
+      --l2.jwt-secret=/etc/optimism/jwt.txt
+      --l1=${l1_rpc_url_wss}
+      --l1.beacon=${l1_rpc_url}
+      --sequencer.enabled
+      --sequencer.l1-confs=5
+      --verifier.l1-confs=4
+      --rollup.config=/etc/optimism/rollup.json
+      --rpc.addr=0.0.0.0
+      --rpc.enable-admin=true
+      --p2p.sequencer.key=${sequencer_private_key}
+      --p2p.no-discovery=true
+      --p2p.listen.tcp=9222
+      --p2p.advertise.ip=op-node-sequencer
+      --p2p.priv.path=/etc/optimism/opnode_p2p_priv.txt
+      --safedb.path=/datadir
+
+  op-batcher:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-batcher:v1.16.2
+    ports:
+    - 8548
+    command: > 
+      op-batcher
+      --l2-eth-rpc=http://op-geth-sequencer:8545
+      --rollup-rpc=http://op-node-sequencer:9545
+      --poll-interval=1s
+      --sub-safety-margin=6
+      --num-confirmations=1
+      --safe-abort-nonce-too-low-count=3
+      --resubmission-timeout=30s
+      --rpc.addr=0.0.0.0
+      --rpc.port=8548
+      --rpc.enable-admin
+      --max-channel-duration=25
+      --l1-eth-rpc=${l1_rpc_url}
+      --private-key=${batcher_private_key}
+      --data-availability-type=blobs
+
+
+  op-geth-rpc:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101603.4
+    ports:
+    - 8545 # HTTP
+    - 8546 # WS
+    - 8551 # Auth
+    volumes:
+    - ./files/jwt.txt:/etc/optimism/jwt.txt:ro
+    - ./datadir_rpc:/datadir
+    command: >
+      --rollup.sequencerhttp=http://op-geth-sequencer:8545
+      --datadir /datadir
+      --http
+      --http.corsdomain="*"
+      --http.vhosts="*"
+      --http.addr=0.0.0.0
+      --http.port=8545
+      --http.api=admin,engine,net,eth,web3,debug,miner
+      --ws
+      --ws.addr=0.0.0.0
+      --ws.port=8546
+      --ws.origins="*"
+      --ws.api=admin,engine,net,eth,web3,debug,miner
+      --log.format=json
+      --syncmode="full"
+      --gcmode=archive
+      --maxpeers=1
+      --networkid=${l2_chain_id}
+      --authrpc.vhosts="*"
+      --authrpc.addr=0.0.0.0
+      --authrpc.port=8551
+      --authrpc.jwtsecret=/etc/optimism/jwt.txt
+      --rollup.disabletxpoolgossip=true
+      --rpc.allow-unprotected-txs
+      --db.engine=pebble
+      --state.scheme=hash
+
+  op-node-rpc:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.16.1
+    ports:
+    - 9545
+    volumes:
+    - ./files/jwt.txt:/etc/optimism/jwt.txt:ro
+    - ./deployer/rollup.json:/etc/optimism/rollup.json:ro
+    - ./datadir_rpc_node:/datadir
+    command: > 
+      op-node
+      --l2=http://op-geth-rpc:8551
+      --l2.jwt-secret=/etc/optimism/jwt.txt
+      --rollup.config=/etc/optimism/rollup.json
+      --rpc.addr=0.0.0.0
+      --rpc.enable-admin
+      --l1=${l1_rpc_url_wss}
+      --l1.beacon=${l1_rpc_url}
+      --p2p.static=/dns4/op-node-sequencer/tcp/9222/p2p/16Uiu2HAmAq6fEsVJN7i694KwAc9AMpjWYUV9Gu9aGdbnnfsVT7MR
+      --p2p.no-discovery=true
+      --safedb.path=/datadir

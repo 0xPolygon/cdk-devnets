@@ -19,6 +19,7 @@ Export the following variables (replace placeholders with values for your enviro
 
 ```shell
 export l1_rpc_url="https://<your-l1-rpc>"
+export l1_beacon_rpc_url="https://<your-l1-beacon-rpc>"
 export op_node_url="https://<your-op-node>"
 export op_geth_url="http://<your-op-geth>"
 export starting_block_number=1
@@ -47,7 +48,7 @@ cd initialize_${op_succinct_version}
 
 cat > .env <<EOF
 L1_RPC="${l1_rpc_url}"
-L1_BEACON_RPC="${l1_rpc_url}"
+L1_BEACON_RPC="${l1_beacon_rpc_url}"
 L2_NODE_RPC="${op_node_url}"
 L2_RPC="${op_geth_url}"
 STARTING_BLOCK_NUMBER="${starting_block_number}"

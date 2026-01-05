@@ -27,17 +27,7 @@ export op_succinct_version="v3.4.0-rc.1-agglayer"
 
 > **Tip**: Keep these values private and do not commit them to version control.
 
-## Step 2: Generate aggchainParams
-
-Generate the L2 output at the starting block and write it to `output.json`:
-
-```shell
-cast rpc --rpc-url "$l2_node_url" optimism_outputAtBlock $(printf "0x%x" $starting_block_number) | jq '.' > output.json
-```
-
-This `output.json` file can be used to help construct `aggchainParams`.
-
-## Step 3: Create Initialization Working Directory
+## Step 2: Create Initialization Working Directory
 
 Create a directory for the initialization run and write a minimal `.env` file consumed by the op-succinct helper:
 
@@ -54,7 +44,7 @@ STARTING_BLOCK_NUMBER="${starting_block_number}"
 EOF
 ```
 
-## Step 4: Fetch L2 Output-Oracle Configuration
+## Step 3: Fetch L2 Output-Oracle Configuration
 
 Run the op-succinct container to generate/fetch the L2 output-oracle configuration file (`opsuccinctl2ooconfig.json`) into the working directory:
 
@@ -67,9 +57,9 @@ docker run --rm -it \
     /bin/bash -c "fetch-l2oo-config --env-file /tmp/env/.env"
 ```
 
-After completion, you should have `opsuccinctl2ooconfig.json` (or other output files) in the current directory.
+After completion, you should have `opsuccinctl2ooconfig.json` (or other output files) in the current directory. This can be used to help construct `aggchainParams.initParams`.
 
-## Step 5: Prepare Rollup Initialization JSON
+## Step 4: Prepare Rollup Initialization JSON
 
 Copy the example initialization JSON file:
 
@@ -128,7 +118,7 @@ Edit the file with your values. Example configuration:
 }
 ```
 
-## Step 6: Run the Initialization Script
+## Step 5: Run the Initialization Script
 
 Install dependencies and run the Hardhat initialization script (example uses `sepolia` network):
 

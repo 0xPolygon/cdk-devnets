@@ -14,12 +14,13 @@ This document explains how to add and select an op-succinct (L2 output) configur
 Export the following variables (replace placeholders with your values):
 
 ```shell
-export rollup_address=0x...                    # Rollup contract address
-export l1_rpc_url="https://<your-l1-rpc>"      # L1 RPC endpoint
-export l2_node_url="http://<your-l2-node>"     # L2 node RPC endpoint
-export l2_rpc_url="http://<your-l2-rpc>"       # L2 RPC (some tools expect this name)
-export aggchain_manager_private_key=0x...      # Private key of Aggchain manager
-export op_succinct_version=v3.4.0-rc.1-agglayer     # op-succinct container tag
+export rollup_address=0x... # Rollup contract address
+export l1_rpc_url="https://<your-l1-rpc>" # L1 RPC endpoint
+export l1_beacon_rpc_url="https://<your-l1-beacon-rpc>" # L1 Beacon RPC endpoint
+export op_node_url="http://<your-op-node>" # op-node RPC endpoint
+export op_geth_url="http://<your-op-geth>" # op-geth RPC endpoint
+export aggchain_manager_private_key=0x... # Private key of Aggchain manager
+export op_succinct_version=v3.4.0-rc.1-agglayer # op-succinct container tag
 export config_name=$(cast keccak "${op_succinct_version}")
 ```
 
@@ -49,9 +50,9 @@ cd config_${op_succinct_version}
 
 cat > .env <<EOF
 L1_RPC="${l1_rpc_url}"
-L1_BEACON_RPC="${l1_rpc_url}"
-L2_NODE_RPC="${l2_node_url}"
-L2_RPC="${l2_rpc_url}"
+L1_BEACON_RPC="${l1_beacon_rpc_url}"
+L2_NODE_RPC="${op_node_url}"
+L2_RPC="${op_geth_url}"
 EOF
 ```
 

@@ -19,8 +19,9 @@ Export the following variables (replace placeholders with values for your enviro
 
 ```shell
 export l1_rpc_url="https://<your-l1-rpc>"
-export l2_node_url="https://<your-l2-node>"
-export l2_rpc_url="http://<your-l2-rpc>" 
+export l1_beacon_rpc_url="https://<your-l1-beacon-rpc>"
+export op_node_url="https://<your-op-node>"
+export op_geth_url="http://<your-op-geth>"
 export starting_block_number=1
 export op_succinct_version="v3.4.0-rc.1-agglayer"
 ```
@@ -32,7 +33,7 @@ export op_succinct_version="v3.4.0-rc.1-agglayer"
 Generate the L2 output at the starting block and write it to `output.json`:
 
 ```shell
-cast rpc --rpc-url "$l2_node_url" optimism_outputAtBlock $(printf "0x%x" $starting_block_number) | jq '.' > output.json
+cast rpc --rpc-url "$op_node_url" optimism_outputAtBlock $(printf "0x%x" $starting_block_number) | jq '.' > output.json
 ```
 
 This `output.json` file can be used to help construct `aggchainParams`.
@@ -47,9 +48,9 @@ cd initialize_${op_succinct_version}
 
 cat > .env <<EOF
 L1_RPC="${l1_rpc_url}"
-L1_BEACON_RPC="${l1_rpc_url}"
-L2_NODE_RPC="${l2_node_url}"
-L2_RPC="${l2_rpc_url}"
+L1_BEACON_RPC="${l1_beacon_rpc_url}"
+L2_NODE_RPC="${op_node_url}"
+L2_RPC="${op_geth_url}"
 STARTING_BLOCK_NUMBER="${starting_block_number}"
 EOF
 ```

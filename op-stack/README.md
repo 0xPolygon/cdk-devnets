@@ -2,6 +2,38 @@
 
 This repository provides step-by-step instructions for deploying an OP Stack rollup and connecting it to the Agglayer.
 
+## Wallet Accounts
+You will need funded wallet accounts to deploy and operate the network.
+
+**Common**
+
+| Role      | Variable Name     | L1 Funds Required | L2 Funds Required |
+|-----------|------------------|:-----------------:|:-----------------:|
+| Deployer  | DEPLOYER_ADDRESS |        ✅         |        ❌         |
+
+**Polygon Stack**
+
+| Role           | Variable Name         | L1 Funds Required | L2 Funds Required |
+|----------------|----------------------|:-----------------:|:-----------------:|
+| Aggoracle      | AGGORACLE_ADDRESS    |        ❌         |        ✅         |
+| Aggsender      | AGGSENDER_ADDRESS    |        ❌         |        ❌         |
+| ClaimTxManager | CLAIMTXMANAGER_ADDR  |        ❌         |        ✅         |
+| Admin          | ADMIN_ADDR           |        ❌         |        ❌         |
+
+**OP Stack**
+
+| Role      | Variable Name            | L1 Funds Required | L2 Funds Required |
+|-----------|-------------------------|:-----------------:|:-----------------:|
+| Sequencer | SEQUENCER_ADDRESS       |        ❌         |        ❌         |
+| Batcher   | BATCHER_ADDRESS         |        ✅         |        ❌         |
+
+
+> 💡 **Tip:** The easiest way to get funds on L2 for testnet/devnet is by prefunding accounts during genesis generation. When you follow step 2 (**[Genesis Generation](02-genesis.md)**), add any accounts you want to be funded directly to the genesis file with the desired balance.
+
+
+
+
+
 ## Deployment Steps
 
 1. **[Rollup Creation](01-rollup-creation.md)** - Submit a request to Polygon Labs and receive deployment artifacts

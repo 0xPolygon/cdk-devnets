@@ -26,7 +26,7 @@ export l1_chain_id=11155111
 export l2_chain_id=0
 export l1_rpc_url="https://<your-l1-rpc>"
 export l1_rpc_url_wss="wss://<your-l1-rpc>"
-export deployer_private_key=0x...
+export deployer_private_key=0x... # private key of DEPLOYER_ADDRESS
 export op_deployer_version="v0.4.5"
 export op_geth_version="v1.101503.1"
 ```
@@ -46,8 +46,8 @@ docker run --rm -v "$(pwd)/deployer:/deployer" -it \
 
 Edit the generated `deployer/intent.toml` with your deployment parameters. You will need to generate new addresses for:
 
-- `unsafeBlockSigner`
-- `batcher`
+- `unsafeBlockSigner` (SEQUENCER_ADDRESS)
+- `batcher` (BATCHER_ADDRESS)
 
 ## Step 2: Deploy L1 Contracts
 

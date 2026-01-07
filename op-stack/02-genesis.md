@@ -41,41 +41,40 @@ Update the file with relevant information from your `combined.json`. Example con
 
 ```json
 {
-    "rollupManagerAddress": "0xe983fD1798689eee00c0Fb77e79B8f372DF41060",
-    "rollupID": 3,
-    "chainID": 1001,
-    "gasTokenAddress": "0x0000000000000000000000000000000000000000",
-    "bridgeManager": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
+    "rollupManagerAddress": "<polygonRollupManagerAddress-from-combined.json>",
+    "rollupID": <rollupID-from-combined.json>,
+    "chainID": <l2ChainID-from-combined.json>,
+    "gasTokenAddress": "<gasTokenAddress-from-combined.json>",
+    "bridgeManager": "<ADMIN_ADDR>",
     "sovereignWETHAddress": "0x0000000000000000000000000000000000000000",
     "sovereignWETHAddressIsNotMintable": false,
     "globalExitRootUpdater": "",
-    "globalExitRootRemover": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
-    "emergencyBridgePauser": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
-    "emergencyBridgeUnpauser": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
-    "proxiedTokensManager": "0xB55B27Cca633A73108893985350bc26B8A00C43a",
+    "globalExitRootRemover": "<ADMIN_ADDR>",
+    "emergencyBridgePauser": "<ADMIN_ADDR>",
+    "emergencyBridgeUnpauser": "<ADMIN_ADDR>",
+    "proxiedTokensManager": "<ADMIN_ADDR>",
     "setPreMintAccounts": true,
     "preMintAccounts": [
         {
             "balance": "1000000000000000000",
-            "address": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66"
+            "address": "<AGGORACLE_ADDRESS>"
         },
         {
             "balance": "1000000000000000000",
-            "address": "0xb420EAAbFeFA05b39dE520f811325A463E023954"
+            "address": "<CLAIMTXMANAGER_ADDR>"
         }
     ],
     "setTimelockParameters": true,
     "timelockParameters": {
-        "adminAddress": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
-        "minDelay": 3600
+        "adminAddress": "<ADMIN_ADDR>",
+        "minDelay": 0
     },
     "useAggOracleCommittee": true,
     "aggOracleCommittee": [
-        "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
-        "0xb420EAAbFeFA05b39dE520f811325A463E023954"
+        "<AGGORACLE_ADDRESS>"
     ],
     "quorum": 1,
-    "aggOracleOwner": "0x8576158a89648aA88B6036f47B8b74Fc0C2b5c66",
+    "aggOracleOwner": "<ADMIN_ADDR>",
     "formatGenesis": "geth"
 }
 ```

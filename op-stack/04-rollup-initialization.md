@@ -73,11 +73,11 @@ Edit the file with your values. Example configuration:
 ```json
 {
     "type": "EOA",
-    "trustedSequencerURL": "http://zkevm-json-rpc:8123",
+    "trustedSequencerURL": "http://<your-l1-rpc>",
     "networkName": "zkevm",
-    "trustedSequencer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-    "chainID": 1005,
-    "rollupAdminAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "trustedSequencer": "<AGGSENDER_ADDRESS>",
+    "chainID": 0,
+    "rollupAdminAddress": "<ADMIN_ADDRESS>",
     "consensusContractName": "AggchainFEP",
     "gasTokenAddress": "0x0000000000000000000000000000000000000000",
     "deployerPvtKey": "",
@@ -86,35 +86,29 @@ Edit the file with your values. Example configuration:
     "multiplierGas": "",
     "timelockDelay": 0,
     "timelockSalt": "",
-    "rollupManagerAddress": "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
+    "rollupManagerAddress": "0x0000000000000000000000000000000000000000",
     "aggchainParams": {
         "initParams": {
-            "l2BlockTime": 1,
-            "rollupConfigHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
-            "startingOutputRoot": "0x1111111111111111111111111111111111111111111111111111111111111111",
-            "startingBlockNumber": 100,
+            "l2BlockTime": <l2BlockTime-from-opsuccinctl2ooconfig.json>,
+            "rollupConfigHash": "<rollupConfigHash-from-opsuccinctl2ooconfig.json>",
+            "startingOutputRoot": "<startingOutputRoot-from-opsuccinctl2ooconfig.json>",
+            "startingBlockNumber": <startingBlockNumber-from-opsuccinctl2ooconfig.json>,
             "startingTimestamp": 7000000,
-            "submissionInterval": 5,
-            "optimisticModeManager": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-            "aggregationVkey": "0x1111111111111111111111111111111111111111111111111111111111111111",
-            "rangeVkeyCommitment": "0x1111111111111111111111111111111111111111111111111111111111111111"
+            "submissionInterval": 1,
+            "optimisticModeManager": "<ADMIN_ADDRESS>",
+            "aggregationVkey": "<aggregationVkey-from-opsuccinctl2ooconfig.json>",
+            "rangeVkeyCommitment": "<rangeVkeyCommitment-from-opsuccinctl2ooconfig.json>"
         },
-        "useDefaultVkeys": false,
+        "useDefaultVkeys": true,
         "useDefaultSigners": false,
         "signers": [
             {
-                "addr": "0x...",
-                "url": "https://example.com/signer1"
-            },
-            {
-                "addr": "0x...",
-                "url": "https://example.com/signer2"
+                "addr": "<AGGSENDER_ADDRESS>",
+                "url": "https://<your-aggsender-rpc>"
             }
         ],
         "threshold": 1,
-        "initOwnedAggchainVKey": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-        "initAggchainVKeySelector": "0x12340001",
-        "vKeyManager": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+        "vKeyManager": "<ADMIN_ADDRESS>"
     }
 }
 ```

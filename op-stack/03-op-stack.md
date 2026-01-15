@@ -28,7 +28,7 @@ export l1_rpc_url="https://<your-l1-rpc>"
 export l1_rpc_url_wss="wss://<your-l1-rpc>"
 export deployer_private_key=0x... # private key of DEPLOYER_ADDRESS
 export op_deployer_version="v0.4.5"
-export op_geth_version="v1.101503.1"
+export op_geth_version="v1.101603.4"
 ```
 
 ## Step 1: Initialize the Deployer Workdir

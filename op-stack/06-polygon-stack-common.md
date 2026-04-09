@@ -2,6 +2,8 @@
 
 This document describes the common components required for Polygon Stack deployment that work with any type of consensus network.
 
+> **Note:** Docker images have been tested on AMD64 (linux/amd64). Other architectures are not guaranteed to work.
+
 ## Aggkit
 
 ### Prerequisites

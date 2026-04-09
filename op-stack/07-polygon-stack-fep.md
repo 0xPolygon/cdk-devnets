@@ -2,6 +2,8 @@
 
 This document describes how to run the components required for Polygon Stack FEP (Full Execution Proof) deployment.
 
+> **Note:** Docker images have been tested on AMD64 (linux/amd64). Other architectures are not guaranteed to work.
+
 ## Environment Variables
 
 ```shell

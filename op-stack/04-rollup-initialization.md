@@ -65,6 +65,8 @@ After completion, you should have `opsuccinctl2ooconfig.json` (or other output f
 
 ## Step 4: Prepare Rollup Initialization JSON
 
+> **Note:** The commands in this step are expected to be run from the `agglayer-contracts` root directory.
+
 Copy the example initialization JSON file:
 
 ```shell

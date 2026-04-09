@@ -21,10 +21,12 @@ This document describes how to generate the L2 genesis file used by the rollup c
 
 ## Step 1: Checkout Repository and Install
 
-Clone the repository version that matches this guide (example uses v12.1.6):
+Clone the repository version that matches this guide:
 
 ```shell
-git clone --depth 1 --branch v12.1.6 https://github.com/agglayer/agglayer-contracts
+# See Component Versions table in README.md for current values
+export agglayer_contracts_version="<agglayer_contracts_version>"
+git clone --depth 1 --branch ${agglayer_contracts_version} https://github.com/agglayer/agglayer-contracts
 cd agglayer-contracts
 npm install
 ```

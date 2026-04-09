@@ -37,9 +37,9 @@ export op_reth_version="<op_reth_version>"
 Create a local `deployer` folder and initialize the op-deployer state:
 
 ```shell
-docker run --rm -v "$(pwd)/deployer:/deployer" -it \
+docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
-	/usr/local/bin/op-deployer init \
+	init \
 		--l1-chain-id ${l1_chain_id} \
 		--l2-chain-ids ${l2_chain_id} \
 		--workdir /deployer
@@ -55,9 +55,9 @@ Edit the generated `deployer/intent.toml` with your deployment parameters. You w
 When your `intent.toml` is ready, deploy the L1 contracts required by the OP Stack:
 
 ```shell
-docker run --rm -v "$(pwd)/deployer:/deployer" -it \
+docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
-	/usr/local/bin/op-deployer apply \
+	apply \
 		--workdir /deployer \
 		--l1-rpc-url ${l1_rpc_url} \
 		--private-key ${deployer_private_key}
@@ -96,13 +96,13 @@ rm allocs.json merge
 Once the state is ready, use `op-deployer inspect` to produce the final `genesis.json` and `rollup.json` for the L2:
 
 ```shell
-docker run --rm -v "$(pwd)/deployer:/deployer" -it \
+docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
-	/usr/local/bin/op-deployer inspect genesis --workdir /deployer ${l2_chain_id} > ./deployer/genesis.json
+	inspect genesis --workdir /deployer ${l2_chain_id} > ./deployer/genesis.json
 
-docker run --rm -v "$(pwd)/deployer:/deployer" -it \
+docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
-	/usr/local/bin/op-deployer inspect rollup --workdir /deployer ${l2_chain_id} > ./deployer/rollup.json
+	inspect rollup --workdir /deployer ${l2_chain_id} > ./deployer/rollup.json
 ```
 
 These files serve as inputs for running the OP Stack nodes or for further tooling in this repository.

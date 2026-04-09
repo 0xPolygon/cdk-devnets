@@ -4,7 +4,7 @@ This document explains how to generate rollup initialization artifacts and run t
 
 ## References
 
-- [Initialize Rollup README](https://github.com/agglayer/agglayer-contracts/blob/v12.1.6/tools/initializeRollup/README.md) - Full usage details, configuration options, and examples
+- [Initialize Rollup README](https://github.com/agglayer/agglayer-contracts/blob/main/tools/initializeRollup/README.md) - Full usage details, configuration options, and examples
 
 ## TL;DR
 
@@ -18,12 +18,13 @@ This document explains how to generate rollup initialization artifacts and run t
 Export the following variables (replace placeholders with values for your environment):
 
 ```shell
-export l1_rpc_url="https://<your-l1-rpc>"
-export l1_beacon_rpc_url="https://<your-l1-beacon-rpc>"
-export op_node_url="https://<your-op-node>"
-export op_geth_url="http://<your-op-geth>"
+export l1_rpc_url="https://<your_l1_rpc>"
+export l1_beacon_rpc_url="https://<your_l1_beacon_rpc>"
+export op_node_url="https://<your_op_node>"
+export op_reth_url="http://<your_op_reth>"
 export starting_block_number=1
-export op_succinct_version="v3.4.0-rc.1-agglayer"
+# See Component Versions table in README.md for current values
+export op_succinct_version="<op_succinct_version>"
 ```
 
 > **Tip**: Keep these values private and do not commit them to version control.
@@ -40,7 +41,7 @@ cat > .env <<EOF
 L1_RPC="${l1_rpc_url}"
 L1_BEACON_RPC="${l1_beacon_rpc_url}"
 L2_NODE_RPC="${op_node_url}"
-L2_RPC="${op_geth_url}"
+L2_RPC="${op_reth_url}"
 STARTING_BLOCK_NUMBER="${starting_block_number}"
 EOF
 ```
@@ -73,7 +74,7 @@ Edit the file with your values. Example configuration:
 ```json
 {
     "type": "EOA",
-    "trustedSequencerURL": "http://<your-l1-rpc>",
+    "trustedSequencerURL": "http://<your_l1_rpc>",
     "networkName": "zkevm",
     "trustedSequencer": "<AGGSENDER_ADDRESS>",
     "chainID": <l2ChainID-from-combined.json>,
@@ -104,7 +105,7 @@ Edit the file with your values. Example configuration:
         "signers": [
             {
                 "addr": "<AGGSENDER_ADDRESS>",
-                "url": "https://<your-aggsender-rpc>"
+                "url": "https://<your_aggsender_rpc>"
             }
         ],
         "threshold": 1,

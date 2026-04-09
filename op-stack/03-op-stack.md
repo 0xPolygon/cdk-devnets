@@ -24,11 +24,12 @@ Set the following environment variables before proceeding:
 ```shell
 export l1_chain_id=11155111
 export l2_chain_id=0
-export l1_rpc_url="https://<your-l1-rpc>"
-export l1_rpc_url_wss="wss://<your-l1-rpc>"
+export l1_rpc_url="https://<your_l1_rpc>"
+export l1_rpc_url_wss="wss://<your_l1_rpc>"
 export deployer_private_key=0x... # private key of DEPLOYER_ADDRESS
-export op_deployer_version="v0.4.5"
-export op_geth_version="v1.101603.4"
+# See Component Versions table in README.md for current values
+export op_deployer_version="<op_deployer_version>"
+export op_reth_version="<op_reth_version>"
 ```
 
 ## Step 1: Initialize the Deployer Workdir
@@ -115,7 +116,7 @@ After deploying the contracts and generating the genesis files, you'll need to r
 > **Source of Truth**: [Spinning up the sequencer](https://docs.optimism.io/chain-operators/guides/deployment/sequencer-node)
 
 The sequencer consists of two core components:
-- **op-geth**: Execution layer that processes transactions and maintains state
+- **op-reth**: Execution layer that processes transactions and maintains state
 - **op-node**: Consensus layer that orders transactions and creates L2 blocks
 
 The sequencer is responsible for ordering transactions from users, building L2 blocks, and signing blocks on the P2P network.

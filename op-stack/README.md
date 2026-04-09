@@ -6,21 +6,21 @@ This repository provides step-by-step instructions for deploying an OP Stack rol
 
 **OP Stack**
 
-| Component | Version |
-|---|---|
-| op-deployer | v0.4.5 |
-| op-geth | v1.101603.4 |
-| op-node | v1.16.11 |
-| op-batcher | v1.16.6 |
+| Component | Version | Docker Image |
+|---|---|---|
+| op-deployer | v0.6.0 | us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer |
+| op-reth | v1.11.5 | us-docker.pkg.dev/oplabs-tools-artifacts/images/op-reth |
+| op-node | v1.16.11 | us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node |
+| op-batcher | v1.16.6 | us-docker.pkg.dev/oplabs-tools-artifacts/images/op-batcher |
 
 **Polygon Stack**
 
-| Component | Version | Network Type |
-|---|---|---|
-| agglayer-contracts | v12.1.6 | PP/FEP |
-| aggkit | 0.8.2 | PP/FEP |
-| aggkit-prover | v1.9.2 | FEP |
-| op-succinct-proposer | v3.5.0-agglayer | FEP |
+| Component | Version | Network Type | Docker Image |
+|---|---|---|---|
+| agglayer-contracts | v12.1.6 | PP/FEP | - |
+| aggkit | 0.8.2 | PP/FEP | ghcr.io/agglayer/aggkit |
+| aggkit-prover | v1.9.2 | FEP | ghcr.io/agglayer/aggkit-prover |
+| op-succinct-proposer | v3.5.0-agglayer | FEP | ghcr.io/agglayer/op-succinct/op-succinct-agglayer |
 
 ## Wallet Accounts
 You will need funded wallet accounts to deploy and operate the network.

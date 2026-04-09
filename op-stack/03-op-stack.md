@@ -37,7 +37,7 @@ export op_reth_version="<op_reth_version>"
 Create a local `deployer` folder and initialize the op-deployer state:
 
 ```shell
-docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
+docker run --rm -v "$(pwd)/deployer:/deployer" --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
 	init \
 		--l1-chain-id ${l1_chain_id} \

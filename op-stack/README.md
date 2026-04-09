@@ -2,6 +2,26 @@
 
 This repository provides step-by-step instructions for deploying an OP Stack rollup and connecting it to the Agglayer.
 
+## Component Versions
+
+**OP Stack**
+
+| Component | Version |
+|---|---|
+| op-deployer | v0.4.5 |
+| op-geth | v1.101603.4 |
+| op-node | v1.16.11 |
+| op-batcher | v1.16.6 |
+
+**Polygon Stack**
+
+| Component | Version | Network Type |
+|---|---|---|
+| agglayer-contracts | v12.1.6 | PP/FEP |
+| aggkit | 0.8.2 | PP/FEP |
+| aggkit-prover | v1.9.2 | FEP |
+| op-succinct-proposer | v3.5.0-agglayer | FEP |
+
 ## Wallet Accounts
 You will need funded wallet accounts to deploy and operate the network.
 
@@ -29,10 +49,6 @@ You will need funded wallet accounts to deploy and operate the network.
 
 
 > 💡 **Tip:** The easiest way to get funds on L2 for testnet/devnet is by prefunding accounts during genesis generation. When you follow step 2 (**[Genesis Generation](02-genesis.md)**), add any accounts you want to be funded directly to the genesis file with the desired balance.
-
-
-
-
 
 ## Deployment Steps
 

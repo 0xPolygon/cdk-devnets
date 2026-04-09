@@ -55,7 +55,7 @@ Edit the generated `deployer/intent.toml` with your deployment parameters. You w
 When your `intent.toml` is ready, deploy the L1 contracts required by the OP Stack:
 
 ```shell
-docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
+docker run --rm -v "$(pwd)/deployer:/deployer" --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
 	apply \
 		--workdir /deployer \
@@ -96,11 +96,11 @@ rm allocs.json merge
 Once the state is ready, use `op-deployer inspect` to produce the final `genesis.json` and `rollup.json` for the L2:
 
 ```shell
-docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
+docker run --rm -v "$(pwd)/deployer:/deployer" --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
 	inspect genesis --workdir /deployer ${l2_chain_id} > ./deployer/genesis.json
 
-docker run --rm -v $(pwd)/deployer:/deployer --entrypoint /usr/local/bin/op-deployer \
+docker run --rm -v "$(pwd)/deployer:/deployer" --entrypoint /usr/local/bin/op-deployer \
 	us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:${op_deployer_version} \
 	inspect rollup --workdir /deployer ${l2_chain_id} > ./deployer/rollup.json
 ```

@@ -1,5 +1,7 @@
 # Rollup Initialization
 
+> **Warning:** This step is irreversible. Once the rollup is initialized on-chain, it cannot be undone. Double-check all parameters before proceeding.
+
 This document explains how to generate rollup initialization artifacts and run the rollup initialization script for an Agglayer rollup.
 
 ## References

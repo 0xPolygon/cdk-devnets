@@ -2,17 +2,21 @@
 
 This document describes how to run the components required for Polygon Stack FEP (Full Execution Proof) deployment.
 
+> **Note:** Docker images have been tested on AMD64 (linux/amd64). Other architectures are not guaranteed to work.
+
+## Environment Variables
+
+```shell
+# See Component Versions table in README.md for current values
+export aggkit_prover_version="<aggkit_prover_version>"
+export op_succinct_version="<op_succinct_version>"
+```
+
 ## Aggkit Prover
 
 ### Prerequisites
 
 - Access to L1 and L2 RPC endpoints
-
-### Docker Image
-
-```shell
-ghcr.io/agglayer/aggkit-prover:1.8.0
-```
 
 ### Configuration
 
@@ -28,7 +32,7 @@ Run the Aggkit Prover using Docker with the configuration file mounted:
 docker run --rm -it \
   -v /path/to/aggkit-prover-config.toml:/etc/aggkit/aggkit-prover-config.toml \
   -v /path/to/op-stack/genesis.json:/etc/aggkit/genesis.json \
-  ghcr.io/agglayer/aggkit-prover:1.8.0 \
+  ghcr.io/agglayer/aggkit-prover:${aggkit_prover_version} \
   /usr/local/bin/aggkit-prover run --config-path /etc/aggkit/aggkit-prover-config.toml
 ```
 
@@ -38,22 +42,16 @@ docker run --rm -it \
 
 ## OP Succinct Proposer
 
-> **Source of Truth**: For complete documentation, see the [OP Succinct Proposer Documentation](https://github.com/agglayer/op-succinct/blob/v3.4.0-rc.1-agglayer/book/validity/proposer.md).
+> **Source of Truth**: For complete documentation, see the [OP Succinct Proposer Documentation](https://github.com/agglayer/op-succinct/blob/main/book/validity/proposer.md).
 
 ### Prerequisites
 
 - A dedicated PostgreSQL database (must be set up separately)
 - Access to L1 and L2 RPC endpoints
 
-### Docker Image
-
-```shell
-ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.4.0-rc.1-agglayer
-```
-
 ### Environment Variables
 
-> **Source of Truth**: For complete environment variable documentation, see the [Environment Setup](https://github.com/agglayer/op-succinct/blob/v3.4.0-rc.1-agglayer/book/validity/proposer.md#environment-setup) section.
+> **Source of Truth**: For complete environment variable documentation, see the [Environment Setup](https://github.com/agglayer/op-succinct/blob/main/book/validity/proposer.md#environment-setup) section.
 
 ### Running the Container
 
@@ -62,7 +60,7 @@ Make sure to include *all* of the required environment variables in the `.env` f
 ```shell
 docker run --rm -it \
   --env-file .env \
-  ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.4.0-rc.1-agglayer
+  ghcr.io/agglayer/op-succinct/op-succinct-agglayer:${op_succinct_version}
 ```
 
 ### Additional Resources

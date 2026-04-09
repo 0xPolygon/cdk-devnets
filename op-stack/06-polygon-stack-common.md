@@ -41,3 +41,35 @@ You can run individual components or any combination by adjusting the `--compone
 
 ### Additional Resources
 - **GitHub**: [agglayer/aggkit](https://github.com/agglayer/aggkit)
+
+## zkEVM Bridge Service
+
+### Prerequisites
+
+- A dedicated PostgreSQL database (must be set up separately)
+- Access to L1 and L2 RPC endpoints
+
+### Environment Variables
+
+```shell
+# See Component Versions table in README.md for current values
+export zkevm_bridge_service_version="<zkevm_bridge_service_version>"
+```
+
+### Configuration
+
+> **Source of Truth**: For complete configuration documentation, see the [zkevm-bridge-service Documentation](https://github.com/0xPolygon/zkevm-bridge-service/tree/develop/docs).
+
+The zkEVM Bridge Service uses a TOML configuration file. See the [example configuration file](https://github.com/0xPolygon/zkevm-bridge-service/blob/develop/config/config.local.toml) for reference.
+
+### Running the Container
+
+```shell
+docker run --rm -it \
+  -v /path/to/config.toml:/app/config.toml \
+  hermeznetwork/zkevm-bridge-service:${zkevm_bridge_service_version} \
+  run --cfg=/app/config.toml
+```
+
+### Additional Resources
+- **GitHub**: [0xPolygon/zkevm-bridge-service](https://github.com/0xPolygon/zkevm-bridge-service)

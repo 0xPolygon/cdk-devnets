@@ -19,6 +19,7 @@ This repository provides step-by-step instructions for deploying an OP Stack rol
 |---|---|---|---|
 | agglayer-contracts | v12.1.6 | PP/FEP | - |
 | aggkit | 0.8.2 | PP/FEP | ghcr.io/agglayer/aggkit |
+| zkevm-bridge-service | v0.6.3 | PP/FEP | hermeznetwork/zkevm-bridge-service |
 | aggkit-prover | v1.9.2 | FEP | ghcr.io/agglayer/aggkit-prover |
 | op-succinct-proposer | v3.5.0-agglayer | FEP | ghcr.io/agglayer/op-succinct/op-succinct-agglayer |
 

@@ -65,9 +65,5 @@ docker run --rm -it \
   ghcr.io/agglayer/op-succinct/op-succinct-agglayer:v3.4.0-rc.1-agglayer
 ```
 
-#### Example with Docker Compose
-
-See the [example docker-compose.yml](https://github.com/agglayer/op-succinct/blob/v3.4.0-rc.1-agglayer/docker-compose.yml) for reference.
-
 ### Additional Resources
 - **GitHub**: [agglayer/op-succinct](https://github.com/agglayer/op-succinct)
